@@ -9,13 +9,6 @@ from foundations.models import Instrument
 
 
 def i_list_page(request):
-    # STEP 2 - Do something w/ models.
-    # ...
-
-    # STEP 3 - Do something w/ context.
-    # ..
-
-    # STEP 4 - Use the `render` function.
     return render(request, "instrument/list.html", {})
 
 def i_create_page(request):
@@ -29,9 +22,16 @@ def i_create_page(request):
     return render(request, "instrument/create.html", {})
 
 
-def get_instruments_api(request):
+def get_instruments_list_api(request):
+    instruments = Instrument.objects.filter(user=request.user)
+    output = []
+    for instrument in instruments.all():
+        output.append({
+            'id': instrument.id,
+            'name': instrument.name,
+        })
     return JsonResponse({
-         'version': '1.0',
+        'instruments': output
     })
 
 def post_instruments_create_api(request):
