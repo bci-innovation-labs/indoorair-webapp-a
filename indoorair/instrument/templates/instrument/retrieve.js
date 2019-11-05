@@ -6,7 +6,7 @@ function generateViewFromObject(dataObj) {
         var idInputElement = document.getElementById("id");
         var nameInputElement = document.getElementById("name");
         idInputElement.value = dataObj.id;
-        nameInputElement.value = dataObj.name; 
+        nameInputElement.value = dataObj.name;
     }
 }
 
