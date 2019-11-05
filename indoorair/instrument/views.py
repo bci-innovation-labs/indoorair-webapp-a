@@ -51,3 +51,22 @@ def post_instruments_create_api(request):
          'was_created': False,
          'reason': str(e),
         })
+
+
+def i_retrieve_page(request, id):
+    return render(request, "instrument/retrieve.html", {
+        "instrument_id": int(id),
+    })
+
+def i_retrieve_api(request, id):
+    try:
+        instrument = Instrument.objects.get(id=int(id))
+        return JsonResponse({
+            'was_found': True,
+            'id': instrument.id,
+            'name': instrument.name,
+        })
+    except Exception as e:
+        return JsonResponse({
+         'was_found': False,
+        })
