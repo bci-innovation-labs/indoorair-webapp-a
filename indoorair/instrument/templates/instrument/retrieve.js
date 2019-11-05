@@ -32,3 +32,7 @@ onPageLoadRunGetInstrumentDetailsFromAPI(instrument_id);
 function onBackClick() {
     window.location.href = "{% url 'i_list_page' %}";
 }
+
+function onUpdateClick() {
+    window.location.href = "{% url 'i_update_page' instrument_id %}";
+}

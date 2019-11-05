@@ -70,3 +70,25 @@ def i_retrieve_api(request, id):
         return JsonResponse({
          'was_found': False,
         })
+
+def i_update_page(request, id):
+    return render(request, "instrument/update.html", {
+        "instrument_id": int(id),
+    })
+
+def i_update_api(request, id):
+    try:
+        name = request.POST.get("name")
+        instrument = Instrument.objects.get(id=int(id))
+        instrument.name = name
+        instrument.save()
+        return JsonResponse({
+            'was_found': True,
+            'id': instrument.id,
+            'name': instrument.name,
+        })
+    except Exception as e:
+        print(e)
+        return JsonResponse({
+         'was_found': False,
+        })
