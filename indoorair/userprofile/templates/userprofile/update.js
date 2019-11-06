@@ -33,9 +33,9 @@ onPageLoadRunGetProfileFromAPI();
 
 
 function onBackClick() {
-    window.location.href = "{% url 'dashboard_page' %}";
+    window.location.href = "{% url 'profile_retrieve_page' %}";
 }
 
-function onUpdateClick() {
-    window.location.href = "{% url 'profile_update_page' %}";
+function onSubmitClick() {
+    window.location.href = "";
 }
