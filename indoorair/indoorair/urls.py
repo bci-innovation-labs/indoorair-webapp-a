@@ -22,4 +22,5 @@ urlpatterns = [
     path('', include('gateway.urls')),
     path('', include('dashboard.urls')),
     path('', include('instrument.urls')),
+    path('', include('userprofile.urls')),
 ]
