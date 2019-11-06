@@ -52,7 +52,8 @@ function onSubmitClick() {
         }
     }
 
-    xhttp.open("POST", "{% url 'i_update_api' instrument_id %}", true);
+    const instrumentId = {{ instrument_id }};
+    xhttp.open("POST", "/api/instrument/"+instrumentId+"/update", true);
     xhttp.setRequestHeader("content-type", "application/x-www-form-urlencoded");
     const name = document.getElementById("name").value;
     xhttp.send("name="+name);

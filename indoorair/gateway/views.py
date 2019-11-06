@@ -101,3 +101,30 @@ def post_login_api(request):
              "was_successful": False,
              "reason": "Cannot log in, username or password is wrong.",
         })
+
+
+
+def logout_page(request):
+    # STEP 2 - Do something w/ models.
+    # ...
+
+    # STEP 3 - Do something w/ context.
+    # ..
+
+    # STEP 4 - Use the `render` function.
+    return render(request, "gateway/logout.html", {})
+
+
+def post_logout_api(request):
+    try:
+        logout(request)
+        return JsonResponse({
+             "was_logged_out": True,
+             "reason": None,
+        })
+    except Exception as e:
+        print(e)
+        return JsonResponse({
+             "was_logged_out": False,
+             "reason": str(e),
+        })

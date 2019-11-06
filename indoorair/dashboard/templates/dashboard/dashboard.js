@@ -17,3 +17,7 @@ function onPageLoadGetDashboardAPI() {
 }
 
 onPageLoadGetDashboardAPI();
+
+function onLogoutClick() {
+    window.location.href = "{% url 'logout_page' %}";
+}
